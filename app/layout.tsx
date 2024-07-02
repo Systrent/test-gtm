@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Abel } from "next/font/google";
 import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+const font = Abel({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Test Google Tag Manager",
@@ -17,8 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <body className={font.className}>{children}</body>
       <GoogleTagManager gtmId="GTM-NDQR3JSB" />
-      <body className={inter.className}>{children}</body>
     </html>
   );
 }
